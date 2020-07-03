@@ -1,0 +1,34 @@
+{% macro officialCard(office, official) -%}
+<div class="col mb-4">
+  <div class="card text-center h-100">
+    <div class="card-header">
+        <h5 class="card-title">{{office['name']}}</h5>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{official['name']}} - ({{ {'R':'<i class="fas fa-republican"></i>','D':'<i class="fas fa-democrat"></i>'}[official['party'][0]]|safe}})</h5>
+    <a href="tel:{{official.get('phones')[0]}}" class="btn btn-primary"> <i class="fas fa-phone-alt"></i> Call!</a>
+    {% if official.get('emails')[0]%}
+    <a href="mailto:{{official.get('emails')[0]}}" class="btn btn-primary"> <i class="fas fa-at"></i></i> Email!</a>
+    {% else %}
+    <a href="#" class="btn btn-secondary" disabled> <i class="fas fa-at"></i></i> Sorry, No Email Available</a>
+    {% endif %}
+    </div>
+  </div>
+</div>
+{%- endmacro %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

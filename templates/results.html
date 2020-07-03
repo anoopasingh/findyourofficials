@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% import '_modules.html' as _modules %}
+{% block content %}
+    <div class="container">
+        <h1>Your Elected Officials</h1>
+        <div class="row row-cols-1 row-cols-md-2">
+        {% for office in data['representatives']['offices']%}
+            {% for officialIndex in office['officialIndices']%}
+                {{_modules.officialCard(office, data['representatives']['officials'][officialIndex])}}
+            {% endfor %}
+        {% endfor %}
+        </div>
+    </div>
+{% endblock content %}
